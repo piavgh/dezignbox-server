@@ -8,9 +8,13 @@ button {
     color: white;
 }
 
-/*.container {*/
-    /*margin-bottom: 40px;*/
-/*}*/
+.navbar-brand img {
+    width: 80px;
+}
+
+.container {
+    margin-bottom: 40px;
+}
 
 .form-signin {
     width: 100%;
