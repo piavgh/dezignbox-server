@@ -1,17 +1,17 @@
 <html>
 <head>
-    <title>Log In</title>
     <% include ../partials/stylesheets.ejs %>
+    <title><%= config.siteTitle %> | Log In</title>
 </head>
 <body>
 <% include ../partials/header.ejs %>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-12 col-md-8">
             <% include ../partials/left-side.ejs %>
         </div>
-        <div class="col-md-4">
+        <div class="col-12 col-md-4">
             <form class="form-signin" role="form" action="/login" method="post">
                 <h1>Welcome Back!</h1>
                 <label for="inputEmail" class="sr-only">Email address</label>
@@ -24,7 +24,7 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="btn btn-lg btn-block" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-block" type="submit">Log in</button>
             </form>
         </div>
     </div>

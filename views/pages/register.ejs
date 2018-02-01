@@ -1,17 +1,17 @@
 <html>
 <head>
-    <title>Sign Up</title>
     <% include ../partials/stylesheets.ejs %>
+    <title><%= config.siteTitle %> | Sign Up</title>
 </head>
 <body>
 <% include ../partials/header.ejs %>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-12 col-md-8">
             <% include ../partials/left-side.ejs %>
         </div>
-        <div class="col-md-4">
+        <div class="col-12 col-md-4">
             <form class="form-signin" role="form" action="/register" method="post">
                 <h1>Sign Up</h1>
                 <label for="inputEmail" class="sr-only">Email address</label>
