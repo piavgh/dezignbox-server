@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-12">
+        <% if(flashSuccess.length){ %>
+        <div class="alert alert-success" role="alert"><%= flashSuccess %></div>
+        <% } else if (flashError.length) { %>
+        <div class="alert alert-danger" role="alert"><%= flashError %></div>
+        <% } %>
+    </div>
+</div>

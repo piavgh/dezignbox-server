@@ -1,6 +1,7 @@
 "use strict";
 
 const passport = require("passport");
+const i18n = require('i18n');
 const User = require("../../../models/User");
 
 module.exports = (req, res) => {
@@ -11,10 +12,12 @@ module.exports = (req, res) => {
     }), req.body.password, function (err, user) {
         if (err) {
             console.log(err);
-            return res.render('pages/register', {user: user});
+            req.flash('error', err.message);
+            return res.redirect('/register');
         }
 
         passport.authenticate('local')(req, res, function () {
+            req.flash('success', i18n.__('loginSuccess'));
             res.redirect('/');
         });
     });

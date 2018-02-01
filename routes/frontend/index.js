@@ -24,7 +24,11 @@ router.post('/register', registerPost);
 router.get('/login', login);
 
 // route for login action
-router.post('/login', passport.authenticate('local'), loginPost);
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+}), loginPost);
 
 // route for logout action
 router.get('/logout', logout);

@@ -1,30 +1,44 @@
 <html>
 <head>
     <% include ../partials/stylesheets.ejs %>
-    <title><%= config.siteTitle %> | Sign Up</title>
+    <title><%= config.siteTitle %> | <%= __('register') %></title>
 </head>
 <body>
 <% include ../partials/header.ejs %>
 
 <div class="container">
+    <% include ../partials/error-messages.ejs %>
+
     <div class="row">
         <div class="col-12 col-md-8">
             <% include ../partials/left-side.ejs %>
         </div>
         <div class="col-12 col-md-4">
             <form class="form-signin" role="form" action="/register" method="post">
-                <h1>Sign Up</h1>
+                <h1><%= __('register') %></h1>
                 <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address"
+                <input type="email"
+                       id="inputEmail"
+                       class="form-control"
+                       name="email"
+                       placeholder="<%= __('email') %>"
                        required
                        autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" name="password"
-                       placeholder="Enter your password" required>
-                <label for="inputRePassword" class="sr-only">Re-Password</label>
-                <input type="password" id="repassword" class="form-control" placeholder="Re-Enter your password"
+                <input type="password"
+                       id="inputPassword"
+                       class="form-control"
+                       name="password"
+                       placeholder="<%= __('password') %>"
                        required>
-                <button class="btn btn-lg btn-block" type="submit">Sign Up</button>
+                <label for="inputRePassword" class="sr-only">Re-Password</label>
+                <input type="password"
+                       id="repassword"
+                       class="form-control"
+                       placeholder="<%= __('rePassword') %>"
+                       required>
+                <button class="btn btn-lg btn-block"
+                        type="submit"><%= __('register') %></button>
             </form>
         </div>
     </div>

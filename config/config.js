@@ -11,8 +11,10 @@ if (env === 'development' || env === 'test') {
     });
 }
 
+const i18n = require('i18n');
+
 let Configs = {
-    siteTitle: "Dezignbox"
+    siteTitle: i18n.__('siteTitle')
 };
 
 module.exports = Configs;

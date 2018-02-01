@@ -1,0 +1,19 @@
+{
+	"siteTitle": "Dezignbox",
+	"login": "Log In",
+	"loginTitle": "Welcome Back!",
+	"register": "Sign Up",
+	"logout": "Log Out",
+	"phoneNumber": "Phone Number",
+	"username": "Username",
+	"email": "Email Address",
+	"password": "Password",
+	"rePassword": "Re-Enter Your Password",
+	"rememberMe": "Remember Me",
+	"startDesigning": "Start Designing",
+	"aboutUs": "About Designbox",
+	"registerSuccess": "Signed Up Successfully!",
+	"loginSuccess": "Welcome Back!",
+	"logoutSuccess": "See You Again!",
+	"products": "Products"
+}

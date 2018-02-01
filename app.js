@@ -1,18 +1,14 @@
-require('./config/config');
-
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require("express-session");
+const flash = require('express-flash');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const i18n = require("i18n");
 mongoose.Promise = global.Promise;
-
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('connection succesful'))
-    .catch((err) => console.error(err));
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -31,11 +27,32 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+i18n.configure({
+    locales:['vi', 'en'],
+    directory: __dirname + '/locales',
+    //define the default language
+    defaultLocale: 'vi',
+    // define a custom cookie name to parse locale settings from
+    cookie: 'i18n'
+});
+
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'dezign_box',
     resave: false,
     saveUninitialized: false
 }));
+
+//init i18n after cookie-parser
+app.use(i18n.init);
+
+app.use(flash());
+
+require('./config/config');
+
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => console.log('connection succesful'))
+    .catch((err) => console.error(err));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
