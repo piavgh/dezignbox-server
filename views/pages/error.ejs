@@ -1,3 +1,18 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/stylesheets.ejs %>
+    <title>Oops!</title>
+</head>
+<body>
+
+<% include ../partials/header.ejs %>
+
+<div class="container">
+    <h1><%= __('routeNotFound') %></h1>
+</div>
+
+<% include ../partials/footer.ejs %>
+
+</body>
+</html>

@@ -15,5 +15,6 @@
 	"registerSuccess": "Signed Up Successfully!",
 	"loginSuccess": "Welcome Back!",
 	"logoutSuccess": "See You Again!",
-	"products": "Products"
+	"products": "Products",
+	"routeNotFound": "The page you are looking for is not found!"
 }

@@ -15,5 +15,6 @@
 	"registerSuccess": "Tạo Tài Khoản Thành Công!",
 	"loginSuccess": "Chào Mừng Bạn Quay Trở Lại!",
 	"logoutSuccess": "Hẹn Gặp Lại!",
-	"products": "Sản Phẩm"
+	"products": "Sản Phẩm",
+	"routeNotFound": "Trang bạn tìm kiếm không tồn tại!"
 }
