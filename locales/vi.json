@@ -16,5 +16,8 @@
 	"loginSuccess": "Chào Mừng Bạn Quay Trở Lại!",
 	"logoutSuccess": "Hẹn Gặp Lại!",
 	"products": "Sản Phẩm",
-	"routeNotFound": "Trang bạn tìm kiếm không tồn tại!"
+	"routeNotFound": "Trang bạn tìm kiếm không tồn tại!",
+	"emailInvalid": "Email bạn nhập không hợp lệ!",
+	"passwordInvalid": "Mật khẩu có ít nhất 8 ký tự và chứa 1 chữ số!",
+	"rePasswordInvalid": "Mật khẩu không trùng nhau!"
 }

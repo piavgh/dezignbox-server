@@ -67,6 +67,9 @@ app.use('/', require('./routes/frontend/index'));
 app.use(function (req, res, next) {
     const err = new Error('Not Found');
     err.status = 404;
+    res.render('pages/not-found', {
+        req: req
+    });
     next(err);
 });
 
@@ -78,7 +81,7 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('pages/error', {
+    res.render('pages/server-error', {
         req: req
     });
 });

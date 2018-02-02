@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const {check} = require('express-validator/check');
+const i18n = require('i18n');
+
 const middleware = require('./middleware');
 const home = require('../../controllers/frontend/home');
 const login = require('../../controllers/frontend/auth/login');
@@ -18,7 +21,18 @@ router.get('/', home);
 router.get('/register', register);
 
 // route for register action
-router.post('/register', registerPost);
+router.post('/register', [
+    check('email')
+        .exists()
+        .isEmail().withMessage(i18n.__('emailInvalid'))
+        .trim()
+        .normalizeEmail(),
+
+    check('password')
+        .exists()
+        .isLength({min: 8}).withMessage(i18n.__('passwordInvalid'))
+        .matches(/\d/).withMessage(i18n.__('passwordInvalid'))
+], registerPost);
 
 // route to login page
 router.get('/login', login);

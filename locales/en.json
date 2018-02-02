@@ -16,5 +16,8 @@
 	"loginSuccess": "Welcome Back!",
 	"logoutSuccess": "See You Again!",
 	"products": "Products",
-	"routeNotFound": "The page you are looking for is not found!"
+	"routeNotFound": "The page you are looking for is not found!",
+	"emailInvalid": "Email is invalid!",
+	"passwordInvalid": "Passwords must be at least 8 chars long and contain one number!",
+	"rePasswordInvalid": "Passwords are not match!"
 }
