@@ -13,6 +13,10 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -47,9 +51,6 @@ app.use('/', require('./routes/api/index'));
 app.use(function (req, res, next) {
     const err = new Error('Not Found');
     err.status = 404;
-    res.render('pages/not-found', {
-        req: req
-    });
     next(err);
 });
 
@@ -61,9 +62,7 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('pages/server-error', {
-        req: req
-    });
+    res.error(err);
 });
 
 module.exports = app;
