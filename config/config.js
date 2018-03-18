@@ -10,11 +10,3 @@ if (env === 'development' || env === 'test') {
         process.env[key] = envConfig[key];
     });
 }
-
-const i18n = require('i18n');
-
-let Configs = {
-    siteTitle: i18n.__('siteTitle')
-};
-
-module.exports = Configs;

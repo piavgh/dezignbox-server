@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = (req, res) => {
-    res.json({
+    return res.json({
         currentUser: req.user
     });
 };

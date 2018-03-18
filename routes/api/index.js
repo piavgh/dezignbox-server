@@ -2,31 +2,26 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const {check} = require('express-validator/check');
-const i18n = require('i18n');
 
 const middleware = require('./middleware');
-const home = require('../../controllers/frontend/home');
-const loginPost = require('../../controllers/frontend/auth/login-post');
-const registerPost = require('../../controllers/frontend/auth/register-post');
-const logout = require('../../controllers/frontend/auth/logout');
+const loginPost = require('../../controllers/api/auth/login-post');
+const registerPost = require('../../controllers/api/auth/register-post');
+const logout = require('../../controllers/api/auth/logout');
 
 router.use(middleware.start);
-
-// restrict index for logged in user only
-router.get('/', home);
 
 // route for register action
 router.post('/register', [
     check('email')
         .exists()
-        .isEmail().withMessage(i18n.__('emailInvalid'))
+        .isEmail().withMessage('Email Invalid')
         .trim()
         .normalizeEmail(),
 
     check('password')
         .exists()
-        .isLength({min: 8}).withMessage(i18n.__('passwordInvalid'))
-        .matches(/\d/).withMessage(i18n.__('passwordInvalid'))
+        .isLength({min: 8}).withMessage('Password Invalid')
+        .matches(/\d/).withMessage('Password Invalid')
 ], registerPost);
 
 // route for login action
