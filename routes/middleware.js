@@ -1,8 +1,8 @@
 "use strict";
 
-const utils = require('../../helpers/utils');
+const utils = require('../helpers/utils/index');
 
-var Errors = require('../../helpers/errors');
+var Errors = require('../helpers/errors/index');
 module.exports = {
     start: function (req, res, next) {
         res.setTimeout(60 * 1000, function () {

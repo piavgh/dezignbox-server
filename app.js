@@ -45,7 +45,11 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use('/', require('./routes/api/index'));
+// Check authentication
+const authCheckMiddleware = require('./routes/auth-check');
+app.use('/api', authCheckMiddleware);
+
+app.use('/', require('./routes/auth/index'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

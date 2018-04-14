@@ -3,7 +3,7 @@
 const passport = require("passport");
 const {validationResult} = require('express-validator/check');
 
-const User = require("../../../models/User");
+const User = require("../../models/User");
 
 module.exports = (req, res) => {
     const errors = validationResult(req);

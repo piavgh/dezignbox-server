@@ -3,10 +3,10 @@ const router = express.Router();
 const passport = require('passport');
 const {check} = require('express-validator/check');
 
-const middleware = require('./middleware');
-const login = require('../../controllers/api/auth/login');
-const register = require('../../controllers/api/auth/register');
-const logout = require('../../controllers/api/auth/logout');
+const middleware = require('../middleware');
+const login = require('./login');
+const register = require('./register');
+const logout = require('./logout');
 
 router.use(middleware.start);
 
