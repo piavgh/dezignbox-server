@@ -3,12 +3,9 @@ const router = express.Router();
 const passport = require('passport');
 const {check} = require('express-validator/check');
 
-const middleware = require('../middleware');
 const login = require('./login');
 const register = require('./register');
 const logout = require('./logout');
-
-router.use(middleware.start);
 
 // route for register action
 router.post('/register', [
@@ -31,7 +28,5 @@ router.post('/login', passport.authenticate('local', {
 
 // route for logout action
 router.get('/logout', logout);
-
-router.use(middleware.end);
 
 module.exports = router;

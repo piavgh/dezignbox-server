@@ -52,9 +52,14 @@ app.use('/api', authCheckMiddleware);
 // routes
 const authRoutes = require('./routes/auth');
 const apiRoutes = require('./routes/api');
+const middleware = require('./routes/middleware');
+
+app.use(middleware.start);
 
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
+
+app.use(middleware.end);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

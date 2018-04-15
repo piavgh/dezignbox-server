@@ -8,7 +8,9 @@ module.exports = (req, res) => {
     };
 
     // create a token string
-    const token = jwt.sign(payload, process.env.JWT_SECRET);
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "7 days"
+    });
 
     return res.json({
         token: token,
