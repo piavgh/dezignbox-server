@@ -6,6 +6,7 @@ const {check} = require('express-validator/check');
 const login = require('./login');
 const register = require('./register');
 const logout = require('./logout');
+const verifyToken = require('./verify-token');
 
 // route for register action
 router.post('/register', [
@@ -28,5 +29,7 @@ router.post('/login', passport.authenticate('local', {
 
 // route for logout action
 router.get('/logout', logout);
+
+router.get('/me', verifyToken);
 
 module.exports = router;
