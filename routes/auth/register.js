@@ -24,9 +24,7 @@ module.exports = (req, res) => {
         }
 
         passport.authenticate('local')(req, res, function () {
-            return res.json({
-                success: true
-            });
+            return res.success();
         });
     });
 };

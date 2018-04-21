@@ -30,7 +30,7 @@ module.exports = (req, res) => {
             //refresh it)w/ new expiration time at this point, but I’m
             //passing the old token back.
             // var token = utils.generateToken(user);
-            res.json({
+            res.success({
                 user: user,
                 token: token
             });

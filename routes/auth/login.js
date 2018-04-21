@@ -12,7 +12,7 @@ module.exports = (req, res) => {
         expiresIn: "7 days"
     });
 
-    return res.json({
+    return res.success({
         token: token,
         currentUser: req.user
     });
