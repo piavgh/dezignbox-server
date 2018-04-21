@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const middleware = require('../middleware');
+const campaignsRoutes = require('./campaigns');
 
-router.use(middleware.start);
-
-router.use(middleware.end);
+router.use('/campaigns', campaignsRoutes);
 
 module.exports = router;

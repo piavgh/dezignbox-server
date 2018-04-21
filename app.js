@@ -41,6 +41,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const User = require("./models/User");
+const Campaign = require("./models/Campaign");
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -57,7 +58,7 @@ const middleware = require('./routes/middleware');
 app.use(middleware.start);
 
 app.use('/auth', authRoutes);
-app.use('/api', apiRoutes);
+app.use('/api/v1', apiRoutes);
 
 app.use(middleware.end);
 

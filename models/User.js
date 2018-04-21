@@ -16,7 +16,11 @@ const UserSchema = new Schema({
     },
     dob: {
         type: Date
-    }
+    },
+    campaigns: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Campaign'
+    }]
 });
 
 UserSchema.plugin(passportLocalMongoose, {
