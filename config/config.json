@@ -1,12 +1,12 @@
 {
   "test": {
-    "PORT": 3001,
+    "PORT": 8080,
     "MONGODB_URI": "mongodb://localhost:27017/dezignbox_test",
     "JWT_SECRET": "E7C565B2372AC8696CC39C97C7FE8"
   },
   "development": {
-    "PORT": 3001,
-    "MONGODB_URI": "mongodb://localhost:27017/dezignbox",
+    "PORT": 8080,
+    "MONGODB_URI": "mongodb://dezignbox_admin:J2t8ibrOkqmATMA@ds263089.mlab.com:63089/dezignbox_dev",
     "JWT_SECRET": "2C836FD7827CDEE2C4742DC564CFC"
   },
   "production": {
