@@ -18,7 +18,7 @@ const CampaignSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    canvasObject: {
+    canvasDataUrl: {
         type: String
     },
     originalImageUrl: {

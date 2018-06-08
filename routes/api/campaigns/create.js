@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
             description: req.body.description,
             active: true,
             owner: req.body.owner,
-            canvasObject: req.body.canvasObject,
+            canvasDataUrl: req.body.canvasDataUrl,
             originalImageUrl: req.body.originalImageUrl,
             thumbnailImageUrl: req.body.thumbnailImageUrl,
         });
