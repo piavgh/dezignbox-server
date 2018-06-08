@@ -1,4 +1,5 @@
 const express = require('express');
+const paginate = require('express-paginate');
 const cors = require('cors');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -61,6 +62,7 @@ const middleware = require('./routes/middleware');
 
 app.use(middleware.start);
 
+app.use(paginate.middleware(10, 50));
 app.use('/auth', authRoutes);
 app.use('/api/v1', apiRoutes);
 
