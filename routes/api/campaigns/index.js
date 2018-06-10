@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const {body} = require('express-validator/check');
+const {body, query} = require('express-validator/check');
 const {sanitizeBody} = require('express-validator/filter');
 
 const getCampaigns = require('./list');
 const createCampaign = require('./create');
 
 // Routes
-router.get('/', getCampaigns);
+router.get('/', [
+    query('userId', 'User ID is required').exists()
+], getCampaigns);
 
 router.post('/', [
     body('title', 'Title is required').exists(),

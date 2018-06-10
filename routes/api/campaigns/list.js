@@ -7,7 +7,9 @@ const Campaign = mongoose.model('Campaign');
 module.exports = (req, res, next) => {
     try {
         Promise.all([
-            Campaign.find({}).limit(req.query.limit).skip(req.skip).lean().exec(),
+            Campaign.find({
+                owner: req.query.userId
+            }).limit(req.query.limit).skip(req.skip).lean().exec(),
             Campaign.count({})
         ]).then((response) => {
             const results = response[0];
