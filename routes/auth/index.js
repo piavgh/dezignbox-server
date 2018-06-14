@@ -10,21 +10,21 @@ const verifyToken = require('./verify-token');
 
 // route for register action
 router.post('/register', [
-    check('email')
-        .exists()
-        .isEmail().withMessage('Email Invalid')
-        .trim()
-        .normalizeEmail(),
+  check('email')
+    .exists()
+    .isEmail().withMessage('Email Invalid')
+    .trim()
+    .normalizeEmail(),
 
-    check('password')
-        .exists()
-        .isLength({min: 8}).withMessage('Password Invalid')
-        .matches(/\d/).withMessage('Password Invalid')
+  check('password')
+    .exists()
+    .isLength({min: 8}).withMessage('Password Invalid')
+    .matches(/\d/).withMessage('Password Invalid')
 ], register);
 
 // route for login action
 router.post('/login', passport.authenticate('local', {
-    session: false
+  session: false
 }), login);
 
 // route for logout action

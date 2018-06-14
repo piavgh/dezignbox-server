@@ -5,23 +5,23 @@ const mongoose = require('mongoose');
 const Campaign = mongoose.model('Campaign');
 
 module.exports = (req, res, next) => {
-    try {
-        Promise.all([
-            Campaign.find({
-                owner: req.query.userId
-            }).limit(req.query.limit).skip(req.skip).lean().exec(),
-            Campaign.count({})
-        ]).then((response) => {
-            const results = response[0];
-            const itemCount = response[1];
-            const pageCount = Math.ceil(itemCount / req.query.limit);
+  try {
+    Promise.all([
+      Campaign.find({
+        owner: req.query.userId
+      }).limit(req.query.limit).skip(req.skip).lean().exec(),
+      Campaign.count({})
+    ]).then((response) => {
+      const results = response[0];
+      const itemCount = response[1];
+      const pageCount = Math.ceil(itemCount / req.query.limit);
 
-            res.success(results, {
-                hasMore: paginate.hasNextPages(req)(pageCount),
-                pageCount
-            });
-        });
-    } catch (err) {
-        next(err);
-    }
+      res.success(results, {
+        hasMore: paginate.hasNextPages(req)(pageCount),
+        pageCount
+      });
+    });
+  } catch (err) {
+    next(err);
+  }
 };
