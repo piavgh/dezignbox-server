@@ -10,7 +10,9 @@ module.exports = (req, res, next) => {
       Campaign.find({
         owner: req.query.userId
       }).limit(req.query.limit).skip(req.skip).lean().exec(),
-      Campaign.count({})
+      Campaign.count({
+        owner: req.query.userId
+      })
     ]).then((response) => {
       const results = response[0];
       const itemCount = response[1];
