@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
     Promise.all([
       Campaign.find({
         owner: req.query.userId
-      }).limit(req.query.limit).skip(req.skip).lean().exec(),
+      }).select('title active canvasDataUrl').limit(req.query.limit).skip(req.skip).lean().exec(),
       Campaign.count({
         owner: req.query.userId
       })
