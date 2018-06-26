@@ -6,7 +6,7 @@ const Errors = require('../../../helpers/errors');
 
 module.exports = (req, res, next) => {
   try {
-    Campaign.findById(req.params.id)
+    Campaign.findByIdAndRemove(req.params.id)
       .then((campaign) => {
         if (!campaign) {
           return next(new Errors.NotFound);
