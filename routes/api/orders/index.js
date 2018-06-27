@@ -2,7 +2,12 @@ const express = require('express');
 const router = express.Router();
 const {body, query} = require('express-validator/check');
 
+const getOrders = require('./list');
 const createOrder = require('./create');
+
+router.get('/', [
+  query('userId', 'User ID is required').exists()
+], getOrders);
 
 router.post('/', [
   body('owner', 'Owner is required').exists(),
