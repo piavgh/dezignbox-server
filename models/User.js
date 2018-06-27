@@ -21,7 +21,7 @@ const UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Campaign'
   }]
-});
+}, {timestamps: {}});
 
 UserSchema.plugin(passportLocalMongoose, {
   usernameField: "email",

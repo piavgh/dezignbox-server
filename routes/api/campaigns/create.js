@@ -19,9 +19,7 @@ module.exports = (req, res, next) => {
     });
 
     campaign.save().then(() => {
-      res.success({
-        data: campaign
-      })
+      res.success(campaign);
     }, (err) => {
       next(err);
     });

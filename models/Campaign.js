@@ -27,7 +27,7 @@ const CampaignSchema = new Schema({
   thumbnailImageUrl: {
     type: String
   }
-});
+}, {timestamps: {}});
 
 const Campaign = mongoose.model('Campaign', CampaignSchema);
 
