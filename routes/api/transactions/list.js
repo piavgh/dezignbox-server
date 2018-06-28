@@ -9,7 +9,12 @@ module.exports = (req, res, next) => {
     Promise.all([
       Transaction.find({
         owner: req.query.userId
-      }).select('transactionId numberOfItems fullName address city shippingMethod paymentMethod status createdAt').limit(req.query.limit).skip(req.skip).lean().exec(),
+      }).select('transactionId numberOfItems status createdAt updatedAt')
+        .populate('campaign', 'title canvasDataUrl')
+        .limit(req.query.limit)
+        .skip(req.skip)
+        .lean()
+        .exec(),
       Transaction.count({
         owner: req.query.userId
       })
