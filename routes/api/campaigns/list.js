@@ -8,8 +8,11 @@ module.exports = (req, res, next) => {
   try {
     Promise.all([
       Campaign.find({
-        owner: req.query.userId
-      }).select('title active canvasDataUrl').limit(req.query.limit).skip(req.skip).lean().exec(),
+        owner: req.query.userId,
+        status: {
+          $ne: 9
+        }
+      }).select('title status canvasDataUrl').limit(req.query.limit).skip(req.skip).lean().exec(),
       Campaign.count({
         owner: req.query.userId
       })

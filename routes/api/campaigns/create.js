@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
     let campaign = new Campaign({
       title: req.body.title,
       description: req.body.description,
-      active: true,
+      status: 1,
       owner: req.body.owner,
       canvasDataUrl: req.body.canvasDataUrl,
       originalImageUrl: req.body.originalImageUrl,

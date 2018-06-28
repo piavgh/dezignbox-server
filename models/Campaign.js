@@ -10,8 +10,8 @@ const CampaignSchema = new Schema({
     type: String,
     required: true
   },
-  active: {
-    type: Boolean,
+  status: {
+    type: Number, // 1: Active, 2: Inactive, 9: Deleted
     required: true
   },
   owner: {

@@ -19,14 +19,14 @@ router.get('/:id', getCampaignDetail);
 router.post('/', [
   body('title', 'Title is required').exists(),
   body('description', 'Description is required').exists(),
-  body('active', 'Active is required').exists(),
+  body('status', 'Status is required').exists(),
   body('owner', 'Owner is required').exists(),
 ], createCampaign);
 
 router.put('/:id', [
   body('title', 'Title is required').exists(),
   body('description', 'Description is required').exists(),
-  body('active', 'Active is required').exists(),
+  body('status', 'Status is required').exists(),
 ], updateCampaign);
 
 router.delete('/:id', deleteCampaign);

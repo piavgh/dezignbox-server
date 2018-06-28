@@ -6,13 +6,17 @@ const Errors = require('../../../helpers/errors');
 
 module.exports = (req, res, next) => {
   try {
-    Campaign.findByIdAndRemove(req.params.id)
+    Campaign.findById(req.params.id)
       .then((campaign) => {
         if (!campaign) {
           return next(new Errors.NotFound);
         }
 
-        res.success(campaign);
+        campaign.status = 9; // Set campaign status to deleted
+
+        campaign.save(() => {
+          res.success(campaign);
+        }, next);
       }, next)
   } catch (err) {
     next(err);

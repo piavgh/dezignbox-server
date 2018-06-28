@@ -12,6 +12,10 @@ module.exports = (req, res, next) => {
           return next(new Errors.NotFound);
         }
 
+        if (campaign.status === 9) {
+          return next(new Errors.BadRequest('Campaign is deleted'));
+        }
+
         res.success(campaign);
       }, next)
   } catch (err) {
