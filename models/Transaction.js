@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const OrderSchema = new Schema({
+const TransactionSchema = new Schema({
+  transactionId: {
+    type: String,
+    required: true
+  },
   owner: {
     type: Schema.Types.ObjectId,
     ref: 'User'
@@ -40,6 +44,6 @@ const OrderSchema = new Schema({
   }
 }, {timestamps: {}});
 
-const Order = mongoose.model('Order', OrderSchema);
+const Transaction = mongoose.model('Transaction', TransactionSchema);
 
-module.exports = Order;
+module.exports = Transaction;

@@ -47,7 +47,7 @@ app.use(passport.session());
 
 const User = require("./models/User");
 const Campaign = require("./models/Campaign");
-const Order = require("./models/Order");
+const Transaction = require("./models/Transaction");
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());

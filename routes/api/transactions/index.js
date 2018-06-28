@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const {body, query} = require('express-validator/check');
 
-const getOrders = require('./list');
-const createOrder = require('./create');
+const getTransactions = require('./list');
+const createTransaction = require('./create');
 
 router.get('/', [
   query('userId', 'User ID is required').exists()
-], getOrders);
+], getTransactions);
 
 router.post('/', [
   body('owner', 'Owner is required').exists(),
@@ -19,6 +19,6 @@ router.post('/', [
   body('shippingMethod', 'Shipping Method is required').exists(),
   body('paymentMethod', 'Payment Method is required').exists(),
   body('status', 'status is required').exists()
-], createOrder);
+], createTransaction);
 
 module.exports = router;

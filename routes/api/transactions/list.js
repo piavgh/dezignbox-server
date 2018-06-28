@@ -2,15 +2,15 @@
 
 const paginate = require('express-paginate');
 const mongoose = require('mongoose');
-const Order = mongoose.model('Order');
+const Transaction = mongoose.model('Transaction');
 
 module.exports = (req, res, next) => {
   try {
     Promise.all([
-      Order.find({
+      Transaction.find({
         owner: req.query.userId
-      }).select('numberOfItems fullName address city shippingMethod paymentMethod status createdAt').limit(req.query.limit).skip(req.skip).lean().exec(),
-      Order.count({
+      }).select('transactionId numberOfItems fullName address city shippingMethod paymentMethod status createdAt').limit(req.query.limit).skip(req.skip).lean().exec(),
+      Transaction.count({
         owner: req.query.userId
       })
     ]).then((response) => {

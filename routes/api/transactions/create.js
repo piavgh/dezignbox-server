@@ -3,12 +3,15 @@
 const mongoose = require('mongoose');
 const {validationResult} = require('express-validator/check');
 
-const Order = mongoose.model('Order');
+const Transaction = mongoose.model('Transaction');
+
+const generateTransactionId = require('../../../helpers/utils/generate-transaction-id');
 
 module.exports = (req, res, next) => {
   const result = validationResult(req);
   if (result.isEmpty()) {
-    let order = new Order({
+    let transaction = new Transaction({
+      transactionId: generateTransactionId(),
       owner: req.body.owner,
       campaign: req.body.campaign,
       numberOfItems: req.body.numberOfItems,
@@ -20,8 +23,8 @@ module.exports = (req, res, next) => {
       status: req.body.status,
     });
 
-    order.save().then(() => {
-      res.success(order);
+    transaction.save().then(() => {
+      res.success(transaction);
     }, (err) => {
       next(err);
     });
