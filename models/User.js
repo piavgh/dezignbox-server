@@ -17,6 +17,10 @@ const UserSchema = new Schema({
   dob: {
     type: Date
   },
+  isAdmin: {
+    type: Boolean,
+    required: true
+  },
   campaigns: [{
     type: Schema.Types.ObjectId,
     ref: 'Campaign'
