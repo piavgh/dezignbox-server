@@ -31,16 +31,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-    secret: 'dezign_box',
-    resave: false,
-    saveUninitialized: false
+  secret: 'dezign_box',
+  resave: false,
+  saveUninitialized: false
 }));
 
 require('./config/config');
 
 mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('connection succesful'))
-    .catch((err) => console.error(err));
+  .then(() => console.log('connection succesful'))
+  .catch((err) => console.error(err));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -57,9 +57,14 @@ passport.deserializeUser(User.deserializeUser());
 const authCheckMiddleware = require('./routes/auth-check');
 app.use('/api', authCheckMiddleware);
 
+// Check admin privilige
+const adminCheckMiddleware = require('./routes/admin-check');
+app.use('/admin', adminCheckMiddleware);
+
 // routes
 const authRoutes = require('./routes/auth');
 const apiRoutes = require('./routes/api');
+const adminRoutes = require('./routes/admin');
 const middleware = require('./routes/middleware');
 
 app.use(middleware.start);
@@ -67,25 +72,26 @@ app.use(middleware.start);
 app.use(paginate.middleware(10, 50));
 app.use('/auth', authRoutes);
 app.use('/api/v1', apiRoutes);
+app.use('/admin/v1', adminRoutes);
 
 app.use(middleware.end);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.error(err);
+  // render the error page
+  res.status(err.status || 500);
+  res.error(err);
 });
 
 module.exports = app;
