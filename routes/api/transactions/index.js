@@ -3,11 +3,14 @@ const router = express.Router();
 const {body, query} = require('express-validator/check');
 
 const getTransactions = require('./list');
+const getTransactionDetail = require('./get');
 const createTransaction = require('./create');
 
 router.get('/', [
   query('userId', 'User ID is required').exists()
 ], getTransactions);
+
+router.get('/:id', getTransactionDetail);
 
 router.post('/', [
   body('owner', 'Owner is required').exists(),
