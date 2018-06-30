@@ -14,13 +14,12 @@ module.exports = (req, res) => {
   User.register(new User({
     username: req.body.email,
     email: req.body.email,
-    isActive: true
+    isActive: true,
+    isAdmin: false
   }), req.body.password, function (err, user) {
     if (err) {
       console.log(err);
-      return res.json({
-        success: false
-      });
+      return res.error(err);
     }
 
     passport.authenticate('local')(req, res, function () {
