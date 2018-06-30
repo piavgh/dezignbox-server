@@ -7,6 +7,7 @@ const Errors = require('../../../helpers/errors');
 module.exports = (req, res, next) => {
   try {
     Transaction.findById(req.params.id)
+      .populate('campaign', 'title canvasDataUrl')
       .then((transaction) => {
         if (!transaction) {
           return next(new Errors.NotFound);
