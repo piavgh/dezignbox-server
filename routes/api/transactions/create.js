@@ -16,6 +16,7 @@ module.exports = (req, res, next) => {
       campaign: req.body.campaign,
       numberOfItems: req.body.numberOfItems,
       fullName: req.body.fullName,
+      phone: req.body.phone,
       address: req.body.address,
       city: req.body.city,
       shippingMethod: req.body.shippingMethod,
