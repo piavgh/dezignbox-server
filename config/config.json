@@ -1,17 +1,17 @@
 {
   "test": {
     "PORT": 3001,
-    "MONGODB_URI": "mongodb://dezignbox_admin:J2t8ibrOkqmATMA@ds115472.mlab.com:15472/dezignbox_test",
+    "MONGODB_URI": "mongodb+srv://dezignbox_admin:J2t8ibrOkqmATMA@dezignbox-test-seq2j.gcp.mongodb.net/dezignbox_test?retryWrites=true",
     "JWT_SECRET": "E7C565B2372AC8696CC39C97C7FE8"
   },
   "development": {
     "PORT": 3001,
-    "MONGODB_URI": "mongodb://dezignbox_admin:J2t8ibrOkqmATMA@ds263089.mlab.com:63089/dezignbox_dev",
+    "MONGODB_URI": "mongodb+srv://dezignbox_admin:J2t8ibrOkqmATMA@dezignbox-dev-xnu1g.gcp.mongodb.net/dezignbox_dev?retryWrites=true",
     "JWT_SECRET": "2C836FD7827CDEE2C4742DC564CFC"
   },
   "production": {
     "PORT": 8080,
-    "MONGODB_URI": "mongodb://dezignbox_admin:J2t8ibrOkqmATMA@ds263089.mlab.com:63089/dezignbox_dev",
+    "MONGODB_URI": "mongodb+srv://dezignbox_admin:J2t8ibrOkqmATMA@dezignbox-dev-xnu1g.gcp.mongodb.net/dezignbox_dev?retryWrites=true",
     "JWT_SECRET": "2C836FD7827CDEE2C4742DC564CFC"
   }
 }
